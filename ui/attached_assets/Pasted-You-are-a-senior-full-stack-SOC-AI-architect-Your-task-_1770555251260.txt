@@ -1,0 +1,176 @@
+You are a senior full-stack SOC/AI architect.
+
+Your task is to fully integrate the NetSpectre SOC AI chat system with:
+
+OpenSearch as the primary security telemetry source
+
+Ollama as the local LLM inference engine
+
+Express.js backend + React/Vite frontend dashboard
+
+Production-grade SOC logic and threat intelligence responses
+
+🎯 Main Goals
+
+Implement a real SOC AI assistant that:
+
+Reads live alerts and events from OpenSearch
+
+Builds threat intelligence summaries
+
+Sends context-enriched prompts to Ollama
+
+Returns SOC-style professional responses
+
+Falls back gracefully if Ollama is offline
+
+⚙️ Required Backend Features
+1. OpenSearch Integration
+
+Ensure:
+
+Index auto-creation with correct mappings
+
+Functions:
+
+getRecentAlerts(limit)
+getTopAttackTypes()
+getTopSourceIPs()
+getSeverityDistribution()
+getEventsLast24h()
+
+
+All queries must use OpenSearch DSL and be efficient.
+
+2. SOC Intelligence Context Builder
+
+Create a module:
+
+socContext.ts
+
+
+It must generate:
+
+Total events
+
+Active alerts
+
+Top attacker IP
+
+Most common attack type
+
+Severity breakdown
+
+Last 24h activity summary
+
+Return a clear structured SOC context string for LLM prompts.
+
+3. Production Chat Endpoint
+
+Replace /api/chat with:
+
+Flow:
+
+Authenticate user (JWT middleware)
+
+Pull SOC context from OpenSearch
+
+Build system prompt:
+
+You are NetSpectre SOC AI,
+an elite cybersecurity analyst inside a live SOC.
+
+Use the provided telemetry to produce:
+- Threat analysis
+- Risk level
+- Recommended actions
+- Short professional SOC language
+
+
+Send to Ollama /api/chat
+
+Timeout after 15s
+
+If Ollama fails → return rule-based SOC fallback
+
+4. Rule-Based SOC Fallback
+
+Must answer:
+
+system status
+
+alerts summary
+
+threat level
+
+traffic behavior
+
+Using real OpenSearch stats, not hardcoded text.
+
+🎨 Frontend Requirements
+Chat UI must:
+
+Call /api/chat
+
+Show loading spinner
+
+Disable input during request
+
+Display SOC-style formatted response
+
+Support message history (last 10 msgs)
+
+Design:
+
+Dark SOC theme
+
+Red/amber severity accents
+
+Clean terminal-like AI message style
+
+🛡️ Production Quality Rules
+
+Code must be:
+
+TypeScript strict
+
+Fully modular
+
+No duplicated routes
+
+No hardcoded responses except fallback
+
+Clean error handling
+
+Secure environment variables
+
+📦 Final Output Required
+
+Generate:
+
+Updated Express routes
+
+opensearch.ts with analytics queries
+
+socContext.ts
+
+Final /api/chat production logic
+
+Any needed frontend updates
+
+Everything must run without manual fixes.
+
+🔥 Architecture Mindset
+
+Think like:
+
+Senior SOC engineer
+
+AI platform architect
+
+production backend lead
+
+The result should feel like:
+
+Real enterprise SOC AI assistant
+not a demo chatbot.

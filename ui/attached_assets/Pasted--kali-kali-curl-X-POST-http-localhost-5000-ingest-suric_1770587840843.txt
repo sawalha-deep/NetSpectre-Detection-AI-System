@@ -1,0 +1,74 @@
+┌──(kali㉿kali)-[~]
+└─$ curl -X POST http://localhost:5000/ingest/suricata \
+  -H "Authorization: Bearer ns_86f26df82636407d9caddeca86fefe5a" \
+  -H "Content-Type: application/json" \
+  -d '{
+        "timestamp": "2026-02-08T12:55:39Z",
+        "event_type": "alert",
+        "src_ip": "192.168.56.1",
+        "dest_ip": "192.168.56.102",
+        "dest_port": 22,
+        "protocol": "TCP",
+        "alert": {
+            "signature": "SSH BruteForce Authentication",
+            "severity": "critical",
+            "category": "Authentication Attack"
+        }
+      }'
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <script type="module">
+import { createHotContext } from "/@vite/client";
+const hot = createHotContext("/__dummy__runtime-error-plugin");
+
+function sendError(error) {
+  if (!(error instanceof Error)) {
+    error = new Error("(unknown runtime error)");
+  }
+  const serialized = {
+    message: error.message,
+    stack: error.stack,
+  };
+  hot.send("runtime-error-plugin:error", serialized);
+}
+
+window.addEventListener("error", (evt) => {
+  sendError(evt.error);
+});
+
+window.addEventListener("unhandledrejection", (evt) => {
+  sendError(evt.reason);
+});
+</script>
+
+    <script type="module">import { injectIntoGlobalHook } from "/@react-refresh";
+injectIntoGlobalHook(window);
+window.$RefreshReg$ = () => {};
+window.$RefreshSig$ = () => (type) => type;</script>
+
+    <script type="module" src="/@vite/client"></script>
+
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1" />
+
+    <title>NetSpectre AI | Next-Gen Cyber Security</title>
+    <meta name="description" content="Enterprise-grade SIEM and SOC platform for advanced threat detection and response." />
+    
+    <meta property="og:title" content="NetSpectre AI" />
+    <meta property="og:description" content="Advanced Cybersecurity Intelligence Platform" />
+    <meta property="og:type" content="website" />
+    <meta property="og:image" content="/logo.png" />
+    
+    <link rel="icon" type="image/png" href="/logo.png" />
+    
+    <!-- Fonts: Inter for UI, Oxanium for Headers (Cyber/Tech feel), JetBrains Mono for Code -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&family=Oxanium:wght@400;500;600;700&display=swap" rel="stylesheet">
+  </head>
+  <body>
+    <div id="root"></div>
+    <script type="module" src="/src/main.tsx?v=Vc9tDjI5L89vURt3tFGzF"></script>
+  </body>
+</html>                                                                                                                                                                                                                                              

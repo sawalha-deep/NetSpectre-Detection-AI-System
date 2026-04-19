@@ -1,0 +1,100 @@
+Build a full-stack cybersecurity SOC dashboard project called **NetSpectre** that runs smoothly on **Replit** with clean architecture, production-ready structure, and future scalability toward OpenSearch integration.
+
+### Core Backend
+
+Use **FastAPI (Python)** as the main backend framework with modular structure:
+
+* Database: **SQLite embedded inside the project**
+* ORM: SQLAlchemy
+* Create default admin user on first run:
+
+  * username: `admin@netspectre.ai`
+  * password: `netspectre`
+* Enforce **mandatory password change on first login** before accessing the dashboard.
+* Implement authentication using **JWT sessions**.
+* Provide clean API routes for:
+
+  * authentication
+  * traffic/events ingestion
+  * alerts retrieval
+  * system info
+  * about page content
+
+### Event / IDS Data Handling
+
+System must accept JSON events in this structure:
+
+* timestamp
+* src_ip
+* dst_ip
+* attack_type
+* confidence
+* pred (0 normal, 1 attack)
+* src_model
+
+Enhance internally by adding:
+
+* ISO8601 timestamp conversion
+* severity field derived from prediction & confidence
+* unique event_id
+* ingest_time
+
+Store events in SQLite **but design the code so storage layer can later switch to OpenSearch without rewriting the API**.
+
+### OpenSearch-Ready Architecture
+
+Prepare a **service abstraction layer**:
+
+* Current mode → SQLite storage
+* Future mode → OpenSearch indexing
+* Keep mapping/schema compatible with SIEM standards.
+* Do NOT require OpenSearch to run inside Replit, only make integration-ready code.
+
+### Frontend Dashboard
+
+Create a modern **React or Next.js style UI** (compatible with Replit hosting):
+
+Dashboard must include **fully working pages**, not placeholders:
+
+* Traffic Monitor (live events table + auto refresh)
+* Alerts view (filtered pred=1)
+* Statistics/overview cards
+* Login page with forced password reset flow
+* About Us page
+
+### About Us Page Content
+
+Include:
+
+* Description of NetSpectre as an **AI-powered SOC/IDS platform under development**
+* Clear statement that the project is **still in development**
+* Credit the developer:
+
+**Developed by Yanal Sawalha**
+
+### UI/UX Requirements
+
+* Dark cybersecurity theme
+* Clean SOC-style layout
+* Responsive design
+* Real-time feeling updates
+* Professional production look (not demo style)
+
+### Replit Compatibility
+
+Ensure:
+
+* Single-command startup
+* All dependencies listed
+* No external paid services required
+* Works within Replit resource limits
+
+### Code Quality
+
+* Clean folder structure
+* Environment config support
+* Scalable architecture
+* Clear comments
+* Security best practices
+
+Return the **complete runnable project structure and code**.

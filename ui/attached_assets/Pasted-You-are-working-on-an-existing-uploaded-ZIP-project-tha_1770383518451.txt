@@ -1,0 +1,138 @@
+You are working on an existing uploaded ZIP project that already contains the UI design for a cybersecurity dashboard called NetSpectre.
+
+Your task is to extend the existing project — NOT rebuild it — and implement the following production-ready features compatible with Replit environment only.
+
+1. Built-in Database (Required)
+
+Replace any PostgreSQL or external DB usage.
+
+Implement SQLite embedded inside the project.
+
+Database file must be local (example: netspectre.db).
+
+Use clean ORM structure (SQLAlchemy if Python backend exists, or equivalent SQLite ORM if Node).
+
+2. Default Admin Account
+
+Create a default admin on first run:
+
+Email: admin@netspectre.ai
+
+Password: netspectre
+
+Security rules:
+
+Admin must be forced to change password on first login.
+
+Prevent dashboard access until password is changed.
+
+Store passwords securely (hashed).
+
+3. Backend Integration (FastAPI Preferred)
+
+If backend is missing or weak:
+
+Add a FastAPI backend compatible with Replit.
+
+Provide routes for:
+
+authentication (login / change password)
+
+IDS event ingestion
+
+alerts retrieval
+
+system info
+
+about page content
+
+Design backend so storage layer can later switch to OpenSearch without rewriting APIs.
+
+4. IDS / Event Data Support
+
+Backend must accept JSON events in this structure:
+
+timestamp
+src_ip
+dst_ip
+attack_type
+confidence
+pred (0 normal, 1 attack)
+src_model
+
+
+Enhance internally by adding:
+
+ISO timestamp conversion
+
+severity field
+
+unique event_id
+
+ingest_time
+
+Store events in SQLite for now, but keep code OpenSearch-ready.
+
+5. Activate Existing UI Buttons
+
+The uploaded design already includes buttons like:
+
+Traffic Monitor
+
+Alerts
+
+Dashboard sections
+
+You must:
+
+Connect all buttons to real working pages or API calls
+
+Ensure nothing remains as a placeholder.
+
+6. About Us Page
+
+Add a real About Us page containing:
+
+Description of NetSpectre as an AI-powered SOC/IDS platform
+
+Statement that the project is still under development
+
+Developer credit:
+
+Developed by Yanal Sawalha
+
+7. UI & UX Rules
+
+Keep the existing design (do not redesign from scratch).
+
+Ensure:
+
+dark cybersecurity theme
+
+responsive layout
+
+real-time feeling for traffic/events
+
+professional SOC appearance
+
+8. Replit Compatibility (Critical)
+
+Project must:
+
+Run with one command
+
+Require no external paid services
+
+Work within Replit resource limits
+
+Include all dependencies and environment setup.
+
+9. Output Requirement
+
+Return:
+
+The fully updated runnable project
+
+Clean folder structure
+
+All new backend + database + integrations working with the existing UI.

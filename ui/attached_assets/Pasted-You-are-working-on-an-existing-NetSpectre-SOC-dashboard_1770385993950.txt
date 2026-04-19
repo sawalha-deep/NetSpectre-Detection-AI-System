@@ -1,0 +1,124 @@
+You are working on an **existing NetSpectre SOC dashboard project already uploaded in Replit**.
+
+Your task is to **extend the current project** by adding a proper **Data Sources / Integrations system** that allows connecting external **IDS, Firewall, or log sources** in a clean SOC-style architecture.
+
+Do NOT redesign the UI or rebuild the project. Only add the required integration features.
+
+---
+
+# 1. New Section — Data Sources Page
+
+Create a new dashboard page named:
+
+**“Data Sources”** or **“Integrations”**
+
+This page must:
+
+* Match the **existing dark SOC design**
+* Be fully responsive
+* Appear in the sidebar navigation
+* List all configured external sources in a table or cards
+
+Each data source entry should display:
+
+* Source name
+* Source type (IDS, Firewall, Syslog, Custom API)
+* Connection method (HTTP, Syslog, Agent)
+* Status (active / inactive)
+* Created time
+
+---
+
+# 2. Add Data Source Form
+
+Provide an **“Add Data Source”** button that opens a form/modal.
+
+The form must include:
+
+* Source name
+* Source type dropdown:
+
+  * Suricata
+  * Snort
+  * Firewall
+  * Custom API
+* Connection method:
+
+  * HTTP endpoint
+  * Syslog (future-ready placeholder)
+  * Agent (future-ready placeholder)
+* Optional description
+* Enable/disable toggle
+
+Store all configurations in the **built-in SQLite database**.
+
+Do NOT use any external database.
+
+---
+
+# 3. Secure Ingestion Endpoint
+
+Create a backend API endpoint such as:
+
+```
+POST /ingest/events
+```
+
+Requirements:
+
+* Accept IDS/SOC JSON events
+* Validate structure
+* Store events in SQLite
+* Prepare code structure to be **OpenSearch-ready in the future**
+* Lightweight and compatible with **Replit limits**
+
+---
+
+# 4. Security Requirements
+
+* Each data source must generate a **unique API key or token**
+* Events ingestion must require this key
+* Prevent anonymous submissions
+* Follow clean security best practices
+
+---
+
+# 5. SOC Architecture Rules
+
+This feature must follow real SOC design:
+
+* Data sources send logs → **Ingestion API**
+* Ingestion API → **Database (SQLite now, OpenSearch later)**
+* Alerts → **existing dashboard notifications & alerts views**
+
+Do NOT implement fake/demo behavior.
+
+---
+
+# 6. Scope Reminder (Critical)
+
+Do NOT:
+
+* Redesign the dashboard
+* Change authentication system
+* Modify unrelated components
+* Add paid or heavy infrastructure
+
+Only:
+
+* Add Data Sources page
+* Add secure ingestion endpoint
+* Store configs in SQLite
+* Keep everything Replit-compatible
+
+---
+
+# 7. Expected Result
+
+Return the **updated runnable project** where:
+
+* Users can register external IDS/Firewall sources
+* External systems can securely send events
+* Events appear inside the SOC dashboard
+* Architecture is ready for future **OpenSearch migration**
+* Everything runs smoothly inside **Replit**.

@@ -1,0 +1,119 @@
+You are working on an **existing cybersecurity dashboard project (NetSpectre)** already uploaded in Replit.
+
+Your task is to implement the following **without redesigning the project or rebuilding it from scratch**.
+
+---
+
+# Part 1 — Fix Notifications Dropdown Visibility
+
+## Problem
+
+* The **notifications dropdown opens behind other UI elements**.
+* This is caused by a **CSS stacking context / z-index / overflow issue**.
+
+## Required Fix
+
+Apply a **minimal, production-safe correction only**:
+
+1. Ensure the dropdown uses proper positioning:
+
+   * `position: absolute` or `fixed`
+   * Correct alignment relative to the notification bell.
+
+2. Apply a **safe high z-index** so it appears above:
+
+   * navbar
+   * dashboard cards
+   * charts
+   * sidebar
+   * tables
+
+   Example safe value:
+
+   ```
+   z-index: 9999;
+   ```
+
+3. Detect and fix blocking parents:
+
+   * `overflow: hidden`
+   * unintended stacking contexts
+   * transform/filter creating new layers
+
+   Adjust **only what is strictly necessary**.
+
+4. Preserve:
+
+   * existing design
+   * spacing
+   * animations
+   * component structure
+
+---
+
+# Part 2 — Make Notifications Real-Time from SOC / IDS
+
+Upgrade the notifications system so it becomes **functional SOC alerts**, not static UI.
+
+## Backend Connection
+
+* Connect notifications to the **existing SOC backend (FastAPI or API layer)**.
+* Fetch **latest alerts/events** where:
+
+  * `pred = 1` (attack)
+  * include timestamp, source IP, severity, and attack type.
+
+## Real-Time Behavior
+
+Implement lightweight real-time updates compatible with **Replit limits**:
+
+Allowed methods:
+
+* polling every few seconds **OR**
+* simple WebSocket if already supported.
+
+Do NOT add heavy external services.
+
+## Notification Content
+
+Each notification item must show:
+
+* attack type
+* source IP
+* severity level
+* human-readable time
+
+## UX Behavior
+
+* New alerts appear instantly in the dropdown.
+* Show unread counter on the bell icon.
+* Mark as read when opened.
+* Keep the **existing visual style**.
+
+---
+
+# Scope Rules (Critical)
+
+Do **NOT**:
+
+* redesign the dashboard
+* modify unrelated components
+* change backend architecture
+* add paid/external infrastructure
+
+Only:
+
+* fix dropdown visibility
+* connect real SOC alert data
+* enable lightweight real-time updates.
+
+---
+
+# Expected Result
+
+Return the **updated components and minimal backend adjustments** so that:
+
+* notifications dropdown appears above all UI
+* alerts are real SOC/IDS events
+* updates happen in near real-time
+* everything runs smoothly inside **Replit**.

@@ -1,0 +1,136 @@
+You are working on an **existing NetSpectre SOC dashboard project already running in Replit**.
+
+Your task is to **extend the current ingestion and alerting pipeline** to support:
+
+* **Direct integration with OpenSearch**
+* **Real-time SOC alerts**
+* While keeping the current project structure and UI unchanged.
+
+Do NOT rebuild the project. Only implement the required integration.
+
+---
+
+# 1. OpenSearch Connection Layer
+
+Add a clean, modular **OpenSearch service layer** in the backend.
+
+Requirements:
+
+* Use environment variables for:
+
+  * OpenSearch URL
+  * Index name
+  * Authentication (if provided)
+* Keep existing **SQLite storage for development fallback**.
+* Implement **dual-write capability**:
+
+  * Store events in SQLite
+  * Index the same events in OpenSearch
+
+This ensures **Replit compatibility + future production readiness**.
+
+---
+
+# 2. Ingestion Pipeline Upgrade
+
+Extend the existing ingest endpoint (example: `/api/events/ingest`):
+
+When a new IDS/SOC event arrives:
+
+1. Validate JSON schema.
+2. Enrich the event with:
+
+   * ISO timestamp
+   * severity level derived from `pred` and `confidence`
+   * unique event_id
+   * ingest_time
+3. Store locally in SQLite.
+4. **Immediately index the event into OpenSearch**.
+5. Trigger **real-time alert emission** to the frontend.
+
+Do NOT remove current functionality.
+
+---
+
+# 3. OpenSearch Index Design
+
+Create an index mapping suitable for SOC/SIEM usage:
+
+Fields must include:
+
+* timestamp (date)
+* src_ip (keyword)
+* dst_ip (keyword)
+* attack_type (keyword)
+* confidence (float)
+* pred (integer)
+* severity (keyword)
+* src_model (keyword)
+* ingest_time (date)
+* event_id (keyword)
+
+Ensure mapping is **production-safe and searchable**.
+
+---
+
+# 4. Real-Time Alerts to Dashboard
+
+Implement lightweight **real-time alert delivery** compatible with Replit:
+
+Allowed approaches:
+
+* WebSocket endpoint in backend
+  OR
+* Short polling (few seconds) if WebSocket not feasible.
+
+Behavior:
+
+* When `pred = 1` → generate **SOC alert event**.
+* Push alert instantly to:
+
+  * Notifications dropdown
+  * Alerts page
+  * Traffic monitor (if open)
+
+No heavy external streaming systems allowed.
+
+---
+
+# 5. SOC Logic Rules
+
+* Only **attack events** create alerts.
+* Severity must be computed consistently.
+* Prevent duplicate alerts for the same event_id.
+* Keep architecture ready for:
+
+  * Removing SQLite later
+  * Using OpenSearch as primary SIEM store.
+
+---
+
+# 6. Scope Restrictions (Critical)
+
+Do NOT:
+
+* Redesign the UI
+* Break existing demo functionality
+* Add paid services
+* Introduce heavy infrastructure (Kafka, Redis clusters, etc.)
+
+Only:
+
+* Add OpenSearch indexing
+* Enable real-time SOC alerts
+* Keep everything runnable inside Replit.
+
+---
+
+# 7. Expected Result
+
+Return the **updated runnable project** where:
+
+* IDS events are indexed in OpenSearch instantly
+* Alerts appear in real time inside the dashboard
+* SQLite still works as local fallback
+* Architecture is ready for real SOC production scaling
+* Everything runs smoothly in Replit.
