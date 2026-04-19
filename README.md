@@ -139,6 +139,7 @@ git clone https://github.com/sawalha-deep/NetSpectre.git
 cd NetSpectre
 
 
+```bash
 
 ## 🎥 Demo
 
