@@ -30,11 +30,11 @@ Unlike traditional IDS solutions that rely on static signatures, NetSpectre intr
 
 * 🛡️ **SOC AI Agent:**
 
-**An intelligent assistant that:**
+	**An intelligent assistant that:**
 
-- Explains alerts in human-readable language.
-- Suggests recommended response actions.
-- Supports interactive analyst chat.
+	- Explains alerts in human-readable language.
+	- Suggests recommended response actions.
+	- Supports interactive analyst chat.
 
 ---
 
@@ -258,6 +258,33 @@ python extract_behaviar.py -i capture.pcap -o temporal.csv -l 1
 ```
 
 💡 Both models work together to provide accurate and robust detection across multiple attack types.
+### Third Model — Classification Model (Attack Type Classification)
+
+Performs multi-class classification to identify the exact type of attack based on extracted flow features.
+
+#### 🎯 Purpose
+
+##### This model is designed for:
+
+	- Classifying traffic into specific attack categories.
+	- Providing clear outputs for SOC analysis.
+	- Supporting decision-making with labeled predictions.
+#### 🔍 Feature Scope
+
+##### The model uses flow-based features such as:
+
+	- Protocol and destination port
+	- Packet counts (forward / backward)
+	- TCP flag statistics (SYN, ACK, FIN, RST…)
+	- Traffic direction ratios
+	- Unique ports (scan indicators)
+	- Total bytes and average packet size
+
+#### Additionally, a service hint layer improves classification:
+
+	- SSH → Port 22.
+	- WEB → Ports 80, 443, 8080.
+
 
 ## B- Data Extraction – 🧬 Deep Learning (CNN Model)
 
