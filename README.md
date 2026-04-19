@@ -478,7 +478,7 @@ Stops training when validation stops improving.
 ## ▶️ Run Training
 
 ```bash
-python train_sqli_cnn.py
+python train_deep_cnn.py
 ```
 
 ---
