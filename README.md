@@ -235,7 +235,7 @@ python extract_first_xgboost.py -f capture.pcap -o features.csv -l 1 -a SYN_SCAN
 python extract_first_xgboost.py -f capture.pcap -o features.csv -l 2 -a SSH_BruteForce
 
 ```
-### Second MODEL XGBOOST 🟦 Temporal Model
+### Second MODEL 🟦 Temporal Model
 Analyzes traffic behavior over time windows:
 - Packets per second
 - Burstiness
@@ -250,6 +250,106 @@ python extract_behaviar.py -i capture.pcap -o temporal.csv -l 1
 
 💡 Both models work together to provide accurate and robust detection across multiple attack types.
 
+## B- Data Extraction – 🧬 Deep Learning (CNN Model)
+
+NetSpectre leverages a Convolutional Neural Network (CNN) to detect SQL Injection attacks at the Application Layer (Layer 7) by performing deep semantic analysis of HTTP request payloads.
+
+Unlike traditional rule-based systems, this approach enables the detection of obfuscated, encoded, and zero-day injection patterns through learned representations.
+
+🌐 Payload Sources (Attack Vectors)
+
+The system extracts and analyzes payloads from multiple components of HTTP requests to ensure comprehensive coverage:
+
+🔎 Query → GET Attacks
+Injection attempts embedded within URL parameters
+
+Example:
+
+/login.php?id=1' OR '1'='1
+📦 Body → POST Attacks
+Malicious input submitted via forms or APIs
+
+Example:
+
+username=admin'--&password=123
+🍪 Cookie → Session-Based Attacks
+Exploitation of session tokens and cookies
+
+Example:
+
+session=admin' OR '1'='1
+🧠 Advanced SQL Feature Engineering
+
+To enhance detection accuracy, NetSpectre extracts a rich set of statistical and structural features from each payload:
+
+📏 Payload length and parameter count
+🔢 Digit ratio and numerical patterns
+🔣 Special character distribution
+💬 Quote usage (', ")
+🧾 SQL comment indicators (--, #, /* */)
+⚙️ Operator frequency (=, <, >, +, -)
+🔐 Encoding ratio (URL-encoded content %)
+🧬 Shannon Entropy for randomness and obfuscation detection
+
+These features allow the system to identify anomalous and adversarial input patterns beyond simple signature matching.
+
+🧬 Token-Based Structural Analysis
+
+Payloads are further decomposed into tokens to capture syntactic and semantic patterns:
+
+🔤 Token count
+📏 Longest token length
+📊 Average token length
+🔍 Detection of suspicious keywords (e.g., OR, UNION, SELECT, DROP)
+
+This layer enables the CNN model to understand contextual relationships within malicious inputs.
+
+⚙️ Burp Suite Integration
+
+NetSpectre supports direct integration with Burp Suite for extracting real-world attack traffic from XML exports.
+
+▶️ Run Extraction
+🔴 Attack Traffic
+```bash
+python burbsute_to_CSV.py -f burp.xml -o out.csv -ex all
+python burbsute_to_CSV.py -f burp.xml -o out.csv -ex cookie
+```
+```bash
+python cnn_futers.py -f <PCAP File> -o out.csv 
+```
+🎯 Extraction Modes
+query → Extract payloads from URL parameters (GET)
+body → Extract payloads from request body (POST)
+cookie → Extract session/cookie-based payloads
+all → Full-spectrum extraction across all vectors 🔥
+🤖 Why CNN?
+🧠 Learns deep patterns in payload structure (similar to NLP models)
+🔍 Detects obfuscated and polymorphic SQL Injection attacks
+⚡ Effective against zero-day threats
+🎯 Significantly reduces reliance on static signatures
+
+
+🟢 Normal Data Extraction
+```bash
+python extract_normal.py -f <norma_file> -o normal_dataset.csv
+```
+⚖️ Why Separate Pipelines?
+
+Using separate scripts is not a limitation — it’s actually best practice:
+
+🎯 Ensures clean labeling (no mixed data)
+🧠 Improves model learning (clear distinction)
+📊 Reduces false positives
+🔍 Enables better feature distribution analysis
+
+🧪 Output Dataset
+
+The final output is a structured dataset (CSV) containing:
+
+Engineered numerical features
+Original payload (for traceability)
+Label (Attack / Normal)
+Attack type (e.g., SQL Injection)
 ---
 
 ## 🎥 Demo
