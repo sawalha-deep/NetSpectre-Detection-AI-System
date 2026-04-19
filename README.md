@@ -209,6 +209,21 @@ sqlmap -u "http://<target-ip>/mutillidae/index.php?page=user-info.php" --batch
 ```
 ---
 
+## 🧪 Data Extraction & Feature Engineering
+
+After capturing network traffic (PCAP), NetSpectre processes raw packets and extracts meaningful features used for AI-based detection.
+
+---
+
+### 📥 Step 1: Input Data (PCAP)
+
+Provide a captured `.pcap` file:
+
+```bash
+capture.pcap
+```
+
+
 ## 🎥 Demo
 
 ▶️ Watch the full system demo:  
