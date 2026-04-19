@@ -3,9 +3,6 @@
 </p>
 
 
-<p align="center">
-  <img src="assets/demo-qr.png" alt="Demo QR Code" width="200"/>
-</p>
 # 🧠 NetSpectre – AI-Driven Cyber Defense & SOC Intelligence Platform
 
 NetSpectre is a next-generation **AI-powered cybersecurity platform** designed to redefine how modern intrusion detection systems operate in complex, high-speed, and encrypted environments.
@@ -140,6 +137,9 @@ Clone the repository:
 ```bash
 git clone https://github.com/sawalha-deep/NetSpectre.git
 cd NetSpectre
+
+
+
 ## 🎥 Demo
 
 ▶️ Watch the full system demo:
