@@ -105,3 +105,34 @@ It doesn’t just detect attacks…
 
 💡 Developed as a Graduation Project in Network Information Security
 🚀 Designed for real-world cybersecurity challenges
+
+## 📦 Requirements
+
+To run NetSpectre, make sure you have the following installed:
+
+### 🖥️ System
+- Linux (Recommended: Kali Linux / Ubuntu)
+- Python 3.8+
+
+### 🧠 Python Libraries
+- scapy
+- numpy
+- pandas
+- scikit-learn
+- xgboost
+- tensorflow / pytorch
+- fastapi
+- uvicorn
+
+### 🔧 Optional Tools
+- nmap (for testing)
+- sqlmap (for SQL injection simulation)
+- Wireshark (for traffic analysis)
+
+### 📥 Installation
+
+Clone the repository:
+
+```bash
+git clone https://github.com/YOUR_USERNAME/NetSpectre.git
+cd NetSpectre
