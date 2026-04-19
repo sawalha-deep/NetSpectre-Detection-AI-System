@@ -130,15 +130,36 @@ To run NetSpectre, make sure you have the following installed:
 - sqlmap (for SQL injection simulation)
 - Wireshark (for traffic analysis)
 
-## 📥 Installation
+## 📥 Capturing Traffic Network L(2/3)
 
-Clone the repository:
+	### 🔧 Step 1: Prepare the Lab Environment
 
-```bash
-git clone https://github.com/sawalha-deep/NetSpectre.git
-cd NetSpectre
-```
-## 🎥 Demo
+	To generate realistic attack traffic, set up a vulnerable environment:
+
+	- 🐧 Attacker Machine: Kali Linux  
+	- 🎯 Target Machine: Metasploitable2  
+
+	👉 You can download Metasploitable from:
+	https://sourceforge.net/projects/metasploitable/
+
+	---
+
+	### 🌐 Step 2: Configure Network (Kali ↔ Metasploitable)
+
+	1. Open your VM settings (VirtualBox / VMware)  
+	2. Set both machines to the same network:
+	   - **Host-Only Adapter** (recommended)  
+	   - or **NAT Network**
+
+	3. Verify connectivity:
+
+	```bash
+	ping <metasploitable-ip>
+	```
+	### 🔍 Step 3: Capture Network Traffic (Layer 2/3)
+	```bash
+	sudo tcpdump -i <interface> -w capture.pcap
+	```
 
 ## 🎥 Demo
 
