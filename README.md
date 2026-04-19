@@ -392,6 +392,93 @@ The final output is a structured dataset (CSV) containing:
 ---
 
 # ⚙️ Traning Models
+## 🧠 Training – Attack Classification Model (XGBoost + Optuna)
+
+The Attack Classification Model is a multi-class machine learning component designed to classify detected attacks into specific categories such as:
+
+- SQL Injection
+- XSS
+- Command Injection
+- Brute Force
+- Scanning Attacks
+
+It uses **XGBoost** combined with **Optuna hyperparameter optimization** and **feature selection** to achieve high accuracy and strong generalization.
+
+---
+
+## ⚙️ Training Pipeline Overview
+
+The model follows a structured pipeline:
+
+### 🧹 1. Data Preprocessing
+
+- Removes missing values (`dropna`)
+- Replaces infinite values with safe defaults
+- Separates:
+  - Features (X)
+  - Target label (`attack_type`)
+
+---
+
+### 🔤 2. Label Encoding
+
+- Converts attack types into numerical classes using `LabelEncoder`
+- Enables multi-class classification
+
+---
+
+### ✂️ 3. Train / Validation Split
+
+- Stratified split (preserves class distribution)
+- 80% Training / 20% Validation
+
+---
+
+### 📏 4. Feature Scaling
+
+- Applies `StandardScaler`
+- Ensures stable model training and better convergence
+
+---
+
+### ⚖️ 5. Class Balancing
+
+- Uses `compute_class_weight`
+- Handles imbalance between attack types
+- Applies weights during training
+
+---
+
+## 🚀 Hyperparameter Optimization (Optuna)
+
+The model uses **Optuna** to automatically search for optimal parameters:
+
+### 🔍 Tuned Parameters
+
+- `n_estimators` (200 → 600)
+- `max_depth` (4 → 12)
+- `learning_rate` (0.01 → 0.2)
+- `subsample`
+- `colsample_bytree`
+- `gamma`
+- `min_child_weight`
+
+### 🎯 Optimization Objective
+
+- Metric: **Weighted F1-score**
+- Ensures balanced performance across all attack classes
+
+---
+
+## 🔥 Feature Selection
+
+After initial training:
+
+- Extracts feature importance from XGBoost
+- Keeps only features above threshold:
+
+```python
+FEATURE_IMPORTANCE_THRESHOLD = 0.01
 
 ## 🧬 Training – SQL Injection Deep Learning Model (CNN Hybrid)
 
@@ -406,7 +493,7 @@ This hybrid approach enables detection of both known and unknown attack patterns
 
 ---
 
-## ⚙️ Training Pipeline Overview
+##  Training Pipeline Overview
 
 The model follows a dual-input deep learning architecture:
 
