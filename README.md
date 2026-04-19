@@ -134,5 +134,5 @@ To run NetSpectre, make sure you have the following installed:
 Clone the repository:
 
 ```bash
-git clone https://github.com/YOUR_USERNAME/NetSpectre.git
+git clone https://github.com/sawalha-deep/NetSpectre.git
 cd NetSpectre
