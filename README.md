@@ -282,14 +282,14 @@ session=admin' OR '1'='1
 
 To enhance detection accuracy, NetSpectre extracts a rich set of statistical and structural features from each payload:
 
-📏 Payload length and parameter count
-🔢 Digit ratio and numerical patterns
-🔣 Special character distribution
-💬 Quote usage (', ")
-🧾 SQL comment indicators (--, #, /* */)
-⚙️ Operator frequency (=, <, >, +, -)
-🔐 Encoding ratio (URL-encoded content %)
-🧬 Shannon Entropy for randomness and obfuscation detection
+- 📏 Payload length and parameter count.
+- 🔢 Digit ratio and numerical patterns.
+- 🔣 Special character distribution.
+- 💬 Quote usage (', ").
+- 🧾 SQL comment indicators (--, #, /* */).
+- ⚙️ Operator frequency (=, <, >, +, -).
+- 🔐 Encoding ratio (URL-encoded content %).
+- 🧬 Shannon Entropy for randomness and obfuscation detection.
 
 These features allow the system to identify anomalous and adversarial input patterns beyond simple signature matching.
 
@@ -297,10 +297,10 @@ These features allow the system to identify anomalous and adversarial input patt
 
 Payloads are further decomposed into tokens to capture syntactic and semantic patterns:
 
-🔤 Token count
-📏 Longest token length
-📊 Average token length
-🔍 Detection of suspicious keywords (e.g., OR, UNION, SELECT, DROP)
+- 🔤 Token count.
+- 📏 Longest token length.
+- 📊 Average token length.
+- 🔍 Detection of suspicious keywords (e.g., OR, UNION, SELECT, DROP).
 
 This layer enables the CNN model to understand contextual relationships within malicious inputs.
 
