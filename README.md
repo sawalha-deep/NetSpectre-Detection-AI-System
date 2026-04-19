@@ -160,7 +160,51 @@ https://sourceforge.net/projects/metasploitable/
 	```bash
 	sudo tcpdump -i <interface> -w capture.pcap
 	```
+4. Generate Abnormal Traffic 
+	🔴 Port Scanning (Reconnaissance)
+	```bash
+	nmap -sS <target-ip>
+	```
+	
 ---
+## 🌍 Capturing Traffic – Application Layer (Layer 7)
+
+This section focuses on capturing and analyzing **web application traffic (HTTP/HTTPS)** to detect attacks such as SQL Injection, XSS, and other application-layer threats.
+
+### 🔧 Step 1: Setup Interception Proxy (Burp Suite)
+
+Use :contentReference[oaicite:0]{index=0} to intercept and inspect web traffic:
+
+1. Launch Burp Suite  
+2. Go to **Proxy → Intercept → ON**  
+3. Configure your browser proxy:
+   - IP: `127.0.0.1`
+   - Port: `8080`
+
+
+
+### 🌐 Step 2: Configure Browser
+
+- Open browser settings  
+- Set manual proxy:
+  - HTTP Proxy → `127.0.0.1:8080`  
+- Install Burp CA Certificate (for HTTPS interception)
+
+
+
+### 🎯 Step 3: Target a Vulnerable Web App
+
+Use a vulnerable application such as:
+
+- DVWA (Damn Vulnerable Web Application)  
+- Mutillidae (on Metasploitable)  
+
+👉 Example:
+```bash
+sqlmap -u "http://<target-ip>/mutillidae/index.php?page=user-info.php" --batch
+```
+---
+
 ## 🎥 Demo
 
 ▶️ Watch the full system demo:  
