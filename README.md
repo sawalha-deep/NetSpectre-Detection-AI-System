@@ -197,7 +197,11 @@ Use :contentReference[oaicite:0]{index=0} to intercept and inspect web traffic:
 Use a vulnerable application such as:
 
 - DVWA (Damn Vulnerable Web Application)  
-- Mutillidae (on Metasploitable)  
+- Mutillidae (on Metasploitable) 
+- PortSwigger : https://portswigger.net/ 
+- Tryhackme   : https://tryhackme.com/ 
+- Owasp       : https://owasp.org/ 
+- HackBox     : https://www.hackthebox.com/
 
 👉 Example:
 ```bash
