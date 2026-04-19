@@ -284,7 +284,10 @@ Performs multi-class classification to identify the exact type of attack based o
 
 	- SSH → Port 22.
 	- WEB → Ports 80, 443, 8080.
-
+##### ▶️ Run Feature Extraction
+```bash
+python extract_flow_features.py -f <file> -o <out.csv> -a <Attack-Type>
+```
 
 ## B- Data Extraction – 🧬 Deep Learning (CNN Model)
 
@@ -292,29 +295,29 @@ NetSpectre leverages a Convolutional Neural Network (CNN) to detect SQL Injectio
 
 Unlike traditional rule-based systems, this approach enables the detection of obfuscated, encoded, and zero-day injection patterns through learned representations.
 
-🌐 Payload Sources (Attack Vectors)
+#### 🌐 Payload Sources (Attack Vectors)
 
 The system extracts and analyzes payloads from multiple components of HTTP requests to ensure comprehensive coverage:
 
-🔎 Query → GET Attacks
+#### 🔎 Query → GET Attacks
 Injection attempts embedded within URL parameters
 
 Example:
 
 /login.php?id=1' OR '1'='1
-📦 Body → POST Attacks
+#### 📦 Body → POST Attacks
 Malicious input submitted via forms or APIs
 
 Example:
 
 username=admin'--&password=123
-🍪 Cookie → Session-Based Attacks
+#### 🍪 Cookie → Session-Based Attacks
 Exploitation of session tokens and cookies
 
 Example:
 
 session=admin' OR '1'='1
-🧠 Advanced SQL Feature Engineering
+#### 🧠 Advanced SQL Feature Engineering
 
 To enhance detection accuracy, NetSpectre extracts a rich set of statistical and structural features from each payload:
 
@@ -329,7 +332,7 @@ To enhance detection accuracy, NetSpectre extracts a rich set of statistical and
 
 These features allow the system to identify anomalous and adversarial input patterns beyond simple signature matching.
 
-🧬 Token-Based Structural Analysis
+#### 🧬 Token-Based Structural Analysis
 
 Payloads are further decomposed into tokens to capture syntactic and semantic patterns:
 
@@ -340,7 +343,7 @@ Payloads are further decomposed into tokens to capture syntactic and semantic pa
 
 This layer enables the CNN model to understand contextual relationships within malicious inputs.
 
-⚙️ Burp Suite Integration
+#### ⚙️ Burp Suite Integration
 
 NetSpectre supports direct integration with Burp Suite for extracting real-world attack traffic from XML exports.
 
