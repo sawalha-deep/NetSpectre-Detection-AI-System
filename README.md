@@ -140,14 +140,18 @@ cd NetSpectre
 ```
 ## 🎥 Demo
 
-▶️ Watch the full system demo:
-https://www.youtube.com/watch?v=GbtuoEiHKNM&list=PL31p22KO8YfjOR7V7Zzcue3DLjQdwASyP
+## 🎥 Demo
 
-<p align="center">
-  <img src="assets/demo-qr.png" alt="Demo QR Code" width="200"/>
-</p>
+▶️ Watch the full system demo:  
+https://www.youtube.com/watch?v=GbtuoEiHKNM&list=PL31p22KO8YfjOR7V7Zzcue3DLjQdwASyP  
 
-📱 Scan the QR code to open the demo instantly on your mobile device
+<div align="center">
+
+<img src="assets/demo-qr.png" width="220"/>
+
+**📱 Scan to watch instantly**
+
+</div>
 
 💡 This demo showcases:
 
