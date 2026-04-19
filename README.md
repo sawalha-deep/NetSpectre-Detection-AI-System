@@ -28,6 +28,14 @@ Unlike traditional IDS solutions that rely on static signatures, NetSpectre intr
 * 🧠 **Classification Model:**  To Classification types of attack
 * ⚖️ Balanced approach between **speed, accuracy, and explainability**
 
+* 🛡️ **SOC AI Agent:**
+
+**An intelligent assistant that:**
+
+- Explains alerts in human-readable language.
+- Suggests recommended response actions.
+- Supports interactive analyst chat.
+
 ---
 
 ### ⚡ Event-Driven Architecture
