@@ -212,7 +212,6 @@ sqlmap -u "http://<target-ip>/mutillidae/index.php?page=user-info.php" --batch
 # 🧪 Data Extraction & Feature Engineering
 NetSpectre uses a custom-built feature extraction engine to transform raw packet captures into structured data suitable for machine learning models such as XGBoost.
 
----
 ## A- Data Extraction – XGBoost Models
 
 ### First Model 🟥 Flow-Based Model
