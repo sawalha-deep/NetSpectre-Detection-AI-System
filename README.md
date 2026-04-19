@@ -210,11 +210,16 @@ sqlmap -u "http://<target-ip>/mutillidae/index.php?page=user-info.php" --batch
 ---
 
 # 🧪 Data Extraction & Feature Engineering
+NetSpectre uses a custom-built feature extraction engine to transform raw packet captures into structured data suitable for machine learning models such as XGBoost.
+
 ---
 ## A- Data Extraction – XGBoost Models
-#### First MODEL XGBOOST
 
-NetSpectre uses a custom-built feature extraction engine to transform raw packet captures into structured data suitable for machine learning models such as XGBoost.
+### First Model 🟥 Flow-Based Model
+Analyzes network flows and protocol-level behavior:
+- TCP flags (SYN, ACK, FIN)
+- Packet rates and sizes
+- Scan detection heuristics
 
 #### ⚙️ How It Works
 
@@ -230,7 +235,23 @@ python extract_first_xgboost.py -f capture.pcap -o features.csv -l 1 -a SYN_SCAN
 python extract_first_xgboost.py -f capture.pcap -o features.csv -l 2 -a SSH_BruteForce
 
 ```
+### Second MODEL XGBOOST 🟦 Temporal Model
+Analyzes traffic behavior over time windows:
+- Packets per second
+- Burstiness
+- Inter-arrival time
+- Active vs idle ratios
+
+#### ▶️ Run Feature Extraction
+
+```bash
+python extract_behaviar.py -i capture.pcap -o temporal.csv -l 1
+```
+
+💡 Both models work together to provide accurate and robust detection across multiple attack types.
+
 ---
+
 ## 🎥 Demo
 
 ▶️ Watch the full system demo:  
