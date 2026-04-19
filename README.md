@@ -479,7 +479,7 @@ After initial training:
 
 ```python
 FEATURE_IMPORTANCE_THRESHOLD = 0.01
-
+```
 ## 🧬 Training – SQL Injection Deep Learning Model (CNN Hybrid)
 
 The SQL Injection Detection Model is a deep learning–based component designed to identify obfuscated and advanced SQL injection attacks.
@@ -519,7 +519,7 @@ Captures:
 - SQL keywords
 - Injection patterns
 
----
+
 
 ## 🧬 Model Architecture
 
