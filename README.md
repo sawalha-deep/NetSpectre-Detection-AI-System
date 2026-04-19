@@ -317,16 +317,16 @@ python burbsute_to_CSV.py -f burp.xml -o out.csv -ex cookie
 ```bash
 python cnn_futers.py -f <PCAP File> -o out.csv 
 ```
-🎯 Extraction Modes
-query → Extract payloads from URL parameters (GET)
-body → Extract payloads from request body (POST)
-cookie → Extract session/cookie-based payloads
-all → Full-spectrum extraction across all vectors 🔥
+🎯 Extraction Modes:
+- query → Extract payloads from URL parameters (GET).
+- body → Extract payloads from request body (POST).
+- cookie → Extract session/cookie-based payloads.
+- all → Full-spectrum extraction across all vectors 🔥.
 🤖 Why CNN?
-🧠 Learns deep patterns in payload structure (similar to NLP models)
-🔍 Detects obfuscated and polymorphic SQL Injection attacks
-⚡ Effective against zero-day threats
-🎯 Significantly reduces reliance on static signatures
+- 🧠 Learns deep patterns in payload structure (similar to NLP models).
+- 🔍 Detects obfuscated and polymorphic SQL Injection attacks.
+- ⚡ Effective against zero-day threats.
+- 🎯 Significantly reduces reliance on static signatures.
 
 
 🟢 Normal Data Extraction
@@ -337,19 +337,19 @@ python extract_normal.py -f <norma_file> -o normal_dataset.csv
 
 Using separate scripts is not a limitation — it’s actually best practice:
 
-🎯 Ensures clean labeling (no mixed data)
-🧠 Improves model learning (clear distinction)
-📊 Reduces false positives
-🔍 Enables better feature distribution analysis
+- 🎯 Ensures clean labeling (no mixed data).
+- 🧠 Improves model learning (clear distinction).
+- 📊 Reduces false positives.
+- 🔍 Enables better feature distribution analysis.
 
 🧪 Output Dataset
 
 The final output is a structured dataset (CSV) containing:
 
-Engineered numerical features
-Original payload (for traceability)
-Label (Attack / Normal)
-Attack type (e.g., SQL Injection)
+- Engineered numerical features.
+- Original payload (for traceability).
+- Label (Attack / Normal).
+- Attack type (e.g., SQL Injection).
 ---
 
 ## 🎥 Demo
