@@ -137,7 +137,7 @@ Clone the repository:
 ```bash
 git clone https://github.com/sawalha-deep/NetSpectre.git
 cd NetSpectre
-
+```
 ## 🎥 Demo
 
 ▶️ Watch the full system demo:
