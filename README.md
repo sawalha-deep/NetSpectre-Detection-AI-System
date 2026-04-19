@@ -286,7 +286,7 @@ Performs multi-class classification to identify the exact type of attack based o
 	- WEB → Ports 80, 443, 8080.
 ##### ▶️ Run Feature Extraction
 ```bash
-python extract_flow_features.py -f <file> -o <out.csv> -a <Attack-Type>
+python extract_class_features.py -f <file> -o <out.csv> -a <Attack-Type>
 ```
 
 ## B- Data Extraction – 🧬 Deep Learning (CNN Model)
