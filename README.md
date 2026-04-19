@@ -130,16 +130,13 @@ To run NetSpectre, make sure you have the following installed:
 - sqlmap (for SQL injection simulation)
 - Wireshark (for traffic analysis)
 
-### 📥 Installation
+## 📥 Installation
 
 Clone the repository:
 
 ```bash
 git clone https://github.com/sawalha-deep/NetSpectre.git
 cd NetSpectre
-
-
-```bash
 
 ## 🎥 Demo
 
