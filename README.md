@@ -16,7 +16,7 @@ Unlike traditional IDS solutions that rely on static signatures, NetSpectre intr
 ### 🔍 Multi-Layer Detection
 
 * 🌐 **Layer 2/3:** Behavioral anomaly detection using flow-based analysis
-* 🌍 **Layer 7:** Deep learning inspection of HTTP traffic
+* 🌍 **Layer 7:** Deep learning inspection of HTTP & HTTPS traffic
 * 🔐 Detection works even in **encrypted environments**
 
 ---
@@ -150,7 +150,7 @@ To generate realistic attack traffic, set up a vulnerable environment:
 - 🎯 Target Machine: Metasploitable2  
 
 👉 You can download Metasploitable from:
-https://sourceforge.net/projects/metasploitable/
+HTTP & HTTPSs://sourceforge.net/projects/metasploitable/
 
 
 
@@ -179,7 +179,7 @@ https://sourceforge.net/projects/metasploitable/
 ---
 ## 🌍 Capturing Traffic – Application Layer (Layer 7)
 
-This section focuses on capturing and analyzing **web application traffic (HTTP/HTTPS)** to detect attacks such as SQL Injection, XSS, and other application-layer threats.
+This section focuses on capturing and analyzing **web application traffic (HTTP & HTTPS/HTTP & HTTPSS)** to detect attacks such as SQL Injection, XSS, and other application-layer threats.
 
 ### 🔧 Step 1: Setup Interception Proxy (Burp Suite)
 
@@ -197,8 +197,8 @@ Use :contentReference[oaicite:0]{index=0} to intercept and inspect web traffic:
 
 - Open browser settings  
 - Set manual proxy:
-  - HTTP Proxy → `127.0.0.1:8080`  
-- Install Burp CA Certificate (for HTTPS interception)
+  - HTTP & HTTPS Proxy → `127.0.0.1:8080`  
+- Install Burp CA Certificate (for HTTP & HTTPSS interception)
 
 
 
@@ -208,14 +208,14 @@ Use a vulnerable application such as:
 
 - DVWA (Damn Vulnerable Web Application)  
 - Mutillidae (on Metasploitable) 
-- PortSwigger : https://portswigger.net/ 
-- Tryhackme   : https://tryhackme.com/ 
-- Owasp       : https://owasp.org/ 
-- HackBox     : https://www.hackthebox.com/
+- PortSwigger : HTTP & HTTPSs://portswigger.net/ 
+- Tryhackme   : HTTP & HTTPSs://tryhackme.com/ 
+- Owasp       : HTTP & HTTPSs://owasp.org/ 
+- HackBox     : HTTP & HTTPSs://www.hackthebox.com/
 
 👉 Example:
 ```bash
-sqlmap -u "http://<target-ip>/mutillidae/index.php?page=user-info.php" --batch
+sqlmap -u "HTTP & HTTPS://<target-ip>/mutillidae/index.php?page=user-info.php" --batch
 ```
 ---
 
@@ -291,13 +291,13 @@ python extract_class_features.py -f <file> -o <out.csv> -a <Attack-Type>
 
 ## B- Data Extraction – 🧬 Deep Learning (CNN Model)
 
-NetSpectre leverages a Convolutional Neural Network (CNN) to detect SQL Injection attacks at the Application Layer (Layer 7) by performing deep semantic analysis of HTTP request payloads.
+NetSpectre leverages a Convolutional Neural Network (CNN) to detect SQL Injection attacks at the Application Layer (Layer 7) by performing deep semantic analysis of HTTP & HTTPS request payloads.
 
 Unlike traditional rule-based systems, this approach enables the detection of obfuscated, encoded, and zero-day injection patterns through learned representations.
 
 #### 🌐 Payload Sources (Attack Vectors)
 
-The system extracts and analyzes payloads from multiple components of HTTP requests to ensure comprehensive coverage:
+The system extracts and analyzes payloads from multiple components of HTTP & HTTPS requests to ensure comprehensive coverage:
 
 #### 🔎 Query → GET Attacks
 Injection attempts embedded within URL parameters
@@ -566,12 +566,12 @@ The model follows a dual-input deep learning architecture:
 
 ### 🔢 1. Numeric Features
 
-Extracted from HTTP requests:
+Extracted from HTTP & HTTPS requests:
 
 - Payload statistics (length, entropy, token count)
 - Character ratios (special chars, quotes, operators)
 - Network features (frame length, retransmission)
-- HTTP structure (GET / POST, parameters)
+- HTTP & HTTPS structure (GET / POST, parameters)
 
 ---
 
@@ -639,7 +639,7 @@ python train_deep_cnn.py
 ## 🎥 Demo
 
 ▶️ Watch the full system demo:  
-https://www.youtube.com/watch?v=GbtuoEiHKNM&list=PL31p22KO8YfjOR7V7Zzcue3DLjQdwASyP  
+HTTP & HTTPSs://www.youtube.com/watch?v=GbtuoEiHKNM&list=PL31p22KO8YfjOR7V7Zzcue3DLjQdwASyP  
 
 <div align="center">
 
