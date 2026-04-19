@@ -70,6 +70,7 @@ Unlike traditional IDS solutions that rely on static signatures, NetSpectre intr
 * 🌊 SYN Flood & Connection Abuse
 * 🔁 Lateral Movement
 * 💉 SQL Injection (including obfuscated payloads)
+* 🌍 Web Application Attacks
 * ⚠️ Behavioral anomalies & zero-day indicators
 
 ---
@@ -307,7 +308,7 @@ This layer enables the CNN model to understand contextual relationships within m
 
 NetSpectre supports direct integration with Burp Suite for extracting real-world attack traffic from XML exports.
 
-▶️ Run Extraction.
+▶️ Run Extraction:
 🔴 Attack Traffic.
 ```bash
 python burbsute_to_CSV.py -f burp.xml -o out.csv -ex all
