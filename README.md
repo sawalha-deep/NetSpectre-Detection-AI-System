@@ -210,20 +210,26 @@ sqlmap -u "http://<target-ip>/mutillidae/index.php?page=user-info.php" --batch
 ---
 
 ## 🧪 Data Extraction & Feature Engineering
-
-After capturing network traffic (PCAP), NetSpectre processes raw packets and extracts meaningful features used for AI-based detection.
-
 ---
+##  Data Extraction – XGBoost Models
 
-### 📥 Step 1: Input Data (PCAP)
+NetSpectre uses a custom-built feature extraction engine to transform raw packet captures into structured data suitable for machine learning models such as XGBoost.
 
-Provide a captured `.pcap` file:
+### ⚙️ How It Works
+
+The extraction pipeline processes `.pcap` files and converts raw network traffic into **flow-based features** that represent behavioral patterns of network activity.
+
+Each network flow is analyzed and transformed into a numerical feature vector used for training and detection.
+
+
+### ▶️ Run Feature Extraction
 
 ```bash
-capture.pcap
+python extract_first_xgboost.py -f capture.pcap -o features.csv -l 1 -a SYN_SCAN
+python extract_first_xgboost.py -f capture.pcap -o features.csv -l 2 -a SSH_BruteForce
+
 ```
-
-
+---
 ## 🎥 Demo
 
 ▶️ Watch the full system demo:  
