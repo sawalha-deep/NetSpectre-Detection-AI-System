@@ -136,3 +136,29 @@ Clone the repository:
 ```bash
 git clone https://github.com/sawalha-deep/NetSpectre.git
 cd NetSpectre
+## 🎥 Demo
+
+▶️ Watch the full system demo:
+https://www.youtube.com/watch?v=GbtuoEiHKNM&list=PL31p22KO8YfjOR7V7Zzcue3DLjQdwASyP
+
+<div align="center">
+
+<img src="assets/demo-qr.png" width="220"/>
+
+**📱 Scan to watch instantly**
+
+</div>
+
+💡 This demo showcases:
+
+- 🚀 Real-time attack detection and alert generation  
+- 🤖 AI-powered threat classification and anomaly detection  
+- 🧠 SOC-level intelligent analysis and decision support  
+- 🔄 Cross-layer correlation (L2/L3 + L7 attacks)  
+- ⚡ Detection of stealth and obfuscated attacks  
+- 🔐 Analysis of traffic in encrypted environments  
+- 📊 Interactive dashboard with live threat visualization  
+- 🧭 Behavioral analysis of network traffic patterns  
+- 💬 Human-readable explanations for detected threats  
+- 🎯 Reduced false positives using AI correlation  
+- 🔎 Deep inspection of application-layer attacks (e.g., SQL Injection)  
