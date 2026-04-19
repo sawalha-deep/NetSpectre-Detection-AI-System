@@ -25,6 +25,7 @@ Unlike traditional IDS solutions that rely on static signatures, NetSpectre intr
 
 * ⚡ **XGBoost Models:** Fast, interpretable detection of network anomalies
 * 🧬 **Deep Learning (CNN):** Detection of obfuscated SQL Injection attacks
+* 🧠 **Classification Model:**  To Classification types of attack
 * ⚖️ Balanced approach between **speed, accuracy, and explainability**
 
 ---
