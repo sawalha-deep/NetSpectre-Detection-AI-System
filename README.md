@@ -142,7 +142,7 @@ To generate realistic attack traffic, set up a vulnerable environment:
 👉 You can download Metasploitable from:
 https://sourceforge.net/projects/metasploitable/
 
----
+
 
 ### 🌐 Step 2: Configure Network (Kali ↔ Metasploitable)
 
@@ -160,7 +160,7 @@ https://sourceforge.net/projects/metasploitable/
 	```bash
 	sudo tcpdump -i <interface> -w capture.pcap
 	```
-
+---
 ## 🎥 Demo
 
 ▶️ Watch the full system demo:  
