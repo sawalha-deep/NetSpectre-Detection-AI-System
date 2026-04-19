@@ -392,6 +392,73 @@ The final output is a structured dataset (CSV) containing:
 ---
 
 # ⚙️ Traning Models
+## ⚡ Training – Behavioral IDS Model (XGBoost + Optuna)
+
+The Behavioral IDS Model is a high-performance machine learning component designed to detect malicious network activity based on flow-level behavior.
+
+It performs **binary classification**:
+
+- ✅ Normal Traffic  
+- 🚨 Attack Traffic  
+
+This model leverages **XGBoost** with **Optuna optimization** to achieve fast, accurate, and production-ready intrusion detection.
+
+---
+
+## * Training Pipeline Overview
+
+The model follows a structured behavioral analysis pipeline:
+
+### 📊 1. Feature Input (Flow-Based)
+
+Extracted from network traffic (`.pcap`):
+
+- Protocol type
+- Packet counts (forward / backward)
+- TCP flags (SYN, ACK, FIN, RST, etc.)
+- Packet ratios (fwd/bwd, down/up)
+- Unique ports
+- Flow size (bytes)
+
+These features represent **network behavior patterns**, not payload content.
+
+---
+
+### 🧹 2. Data Preprocessing
+
+- Handles missing and invalid values
+- Separates:
+  - Features (`X`)
+  - Labels (`y`) → `0 = Normal`, `1 = Attack`
+
+---
+
+### 📏 3. Feature Scaling
+
+- Uses `StandardScaler`
+- Improves probability stability and model convergence
+- Critical for production inference
+
+---
+
+### ✂️ 4. Train / Test Split
+
+- Stratified split to preserve class distribution
+- Typically:
+  - 75% Training
+  - 25% Testing
+
+---
+
+### ⚖️ 5. Imbalance Handling
+
+- Computes:
+
+```python
+scale_pos_weight = normal / attack
+```
+
+
 ## 🧠 Training – Attack Classification Model (XGBoost + Optuna)
 
 The Attack Classification Model is a multi-class machine learning component designed to classify detected attacks into specific categories such as:
@@ -406,7 +473,7 @@ It uses **XGBoost** combined with **Optuna hyperparameter optimization** and **f
 
 ---
 
-## ⚙️ Training Pipeline Overview
+## * Training Pipeline Overview
 
 The model follows a structured pipeline:
 
