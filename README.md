@@ -393,7 +393,90 @@ The final output is a structured dataset (CSV) containing:
 
 # ⚙️ Traning Models
 
+### 🧬 Training – SQL Injection Deep Learning Model (CNN Hybrid)
 
+The SQL Injection Detection Model is a deep learning–based component designed to identify obfuscated and advanced SQL injection attacks.
+
+#### It combines:
+
+🔢 Numerical features (statistical + structural)
+🧵 Raw payload text (character-level analysis)
+
+This hybrid approach enables detection of both known and unknown attack patterns.
+
+⚙️ Training Pipeline Overview
+
+The model follows a dual-input deep learning architecture:
+
+1. 🔢 Numeric Features
+
+Extracted from HTTP requests:
+
+Payload statistics (length, entropy, token count)
+Character ratios (special chars, quotes, operators)
+Network features (frame length, retransmission)
+HTTP structure (GET / POST, parameters)
+2. 🧵 Text Features (Payload Analysis)
+Uses character-level tokenization
+Processes raw payloads (GET, POST, Cookies)
+
+Captures:
+
+Obfuscation (%27, encoding)
+SQL keywords
+Injection patterns
+🧬 Model Architecture
+
+A hybrid CNN model with two branches:
+
+🔹 Numeric Branch
+Dense (64) + ReLU
+Dropout (0.4)
+🔹 Text Branch (CNN)
+Embedding Layer
+Parallel Conv1D filters:
+Kernel sizes: 3, 5, 7
+Global Max Pooling
+Feature concatenation
+🔹 Fusion Layer
+Merge numeric + text features
+Dense (128) + ReLU
+Dropout (0.5)
+Output: Sigmoid (Binary Classification)
+⚖️ Key Training Techniques
+⚖️ Class Weighting
+Handles imbalance between normal and attack traffic
+🔒 Hash-Based Dataset Split
+Prevents data leakage
+Ensures the same payload does not appear in both train/test
+⏹️ Early Stopping
+Stops training when validation stops improving
+🎯 Custom Threshold
+Uses 0.80 instead of default 0.5
+Reduces false positives in SOC environments
+▶️ Run Training
+python train_sqli_cnn.py
+📊 Model Evaluation
+📋 Classification Report
+Precision
+Recall
+F1-score
+🔲 Confusion Matrix
+Helps analyze false positives vs false negatives
+🎯 Threshold-based Prediction
+Tuned for IDS environments
+💾 Model Output
+
+The training process produces a full deployment bundle:
+
+🧠 CNN Model
+models/sqli_dl_model4.h5
+🧵 Tokenizer
+models/tokenizer4.joblib
+📏 Scaler
+models/scaler4.joblib
+⚙️ Metadata (Threshold)
+models/meta4.joblib
 
 
 ---
