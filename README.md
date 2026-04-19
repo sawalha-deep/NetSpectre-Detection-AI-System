@@ -258,7 +258,7 @@ python extract_behaviar.py -i capture.pcap -o temporal.csv -l 1
 ```
 
 💡 Both models work together to provide accurate and robust detection across multiple attack types.
-### Third Model — Classification Model (Attack Type Classification)
+### Third Model — Classification Model 🟩 (Attack Type Classification)
 
 Performs multi-class classification to identify the exact type of attack based on extracted flow features.
 
