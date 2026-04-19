@@ -132,26 +132,26 @@ To run NetSpectre, make sure you have the following installed:
 
 ## 📥 Capturing Traffic Network L(2/3)
 
-	### 🔧 Step 1: Prepare the Lab Environment
+### 🔧 Step 1: Prepare the Lab Environment
 
-	To generate realistic attack traffic, set up a vulnerable environment:
+To generate realistic attack traffic, set up a vulnerable environment:
 
-	- 🐧 Attacker Machine: Kali Linux  
-	- 🎯 Target Machine: Metasploitable2  
+- 🐧 Attacker Machine: Kali Linux  
+- 🎯 Target Machine: Metasploitable2  
 
-	👉 You can download Metasploitable from:
-	https://sourceforge.net/projects/metasploitable/
+👉 You can download Metasploitable from:
+https://sourceforge.net/projects/metasploitable/
 
-	---
+---
 
-	### 🌐 Step 2: Configure Network (Kali ↔ Metasploitable)
+### 🌐 Step 2: Configure Network (Kali ↔ Metasploitable)
 
-	1. Open your VM settings (VirtualBox / VMware)  
-	2. Set both machines to the same network:
+1. Open your VM settings (VirtualBox / VMware)  
+2. Set both machines to the same network:
 	   - **Host-Only Adapter** (recommended)  
 	   - or **NAT Network**
 
-	3. Verify connectivity:
+3. Verify connectivity:
 
 	```bash
 	ping <metasploitable-ip>
